@@ -1,68 +1,49 @@
-import streamlit as st
+import os
 import feedparser
-import csv
-from datetime import datetime
+import streamlit as st
 
-# --- AGENT 1: WATCHER ---
-@st.cache_data
-def fetch_videos(channel_id):
-    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
-    try:
-        feed = feedparser.parse(url)
-        return [{"title": entry.title, "desc": entry.get("summary", "")} for entry in feed.entries[:5]]
-    except:
-        return []
+# Set page config
+st.set_page_config(page_title="CrisisGuard AI", page_icon="⚠️")
 
-# --- AGENT 2: ANALYST ---
-def analyze_crisis(text):
-    crisis_words = ["scam", "fraud", "fake", "stolen", "banned", "hacked", "cancelled"]
-    score = sum(2 if word in text.lower() else 0 for word in crisis_words)
-    return min(score, 10)
+st.title("⚠️ CrisisGuard AI: YouTube Crisis Detector")
+st.markdown("Paste a **YouTube Channel ID** (e.g., `UCsXVk37bltHxD1rDPwtNM8Q`) below.")
 
-# --- AGENT 3: REPORTER ---
-def log_crisis(video_id, title, score, keyword):
-    with open("crisis_log.csv", "a", newline="") as f:
-        writer = csv.writer(f)
-        # Check if file exists to write header only once
-        if f.tell() == 0:
-            writer.writerow(["timestamp", "video_id", "keyword", "severity", "status"])
-        status = "CRITICAL" if score >= 7 else "SAFE"
-        writer.writerow([datetime.now(), video_id, keyword, score, status])
+# Input handling
+channel_id = st.text_input("Channel ID", placeholder="UCsXVk37bltHxD1rDPwtNM8Q")
 
-# --- UI ---
-st.title("🚨 CrisisGuard AI: Multi-Agent Dashboard")
-st.markdown("### Real-time YouTube Crisis Monitor")
-
-channel_id = st.text_input("Enter YouTube Channel ID (e.g., UCkRfGmb...):")
-
-if st.button("Scan for Crises"):
-    if channel_id:
-        with st.spinner("Agents scanning..."):
-            videos = fetch_videos(channel_id)
-            if not videos:
-                st.error("No videos found or invalid Channel ID.")
-            else:
-                st.success(f"👀 Watcher: Found {len(videos)} videos.")
-                
-                for i, vid in enumerate(videos):
-                    score = analyze_crisis(vid["title"] + " " + vid["desc"])
-                    keyword = "None"
-                    # Simple keyword extraction for demo
-                    if score > 0:
-                        for w in ["scam", "fraud", "fake", "stolen", "banned", "hacked", "cancelled"]:
-                            if w in vid["title"].lower():
-                                keyword = w
-                                break
-                    
-                    st.subheader(f"Video {i+1}: {vid['title'] [:50]}...")
-                    st.metric("Crisis Score", score)
-                    
-                    if score >= 7:
-                        st.error("🚨 ALERT: High Crisis Score!")
-                        log_crisis(f"vid_{i}", vid["title"], score, keyword)
-                    else:
-                        st.info("✅ Safe")
-                
-                st.warning("Check 'crisis_log.csv' for the full report.")
+if st.button("Analyze for Crisis"):
+    if not channel_id:
+        st.error("Please enter a Channel ID.")
     else:
-        st.warning("Please enter a Channel ID.")
+        # 1. CLEAN THE INPUT (Crucial for HF Spaces)
+        clean_id = channel_id.strip().replace('"', '').replace("'", "")
+        
+        rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={clean_id}"
+        
+        with st.spinner(f"Fetching feed for {clean_id}..."):
+            try:
+                # 2. FETCH FEED
+                feed = feedparser.parse(rss_url)
+                
+                # 3. DEBUGGING: Check for errors
+                if feed.bozo:
+                    st.error(f"Feed Error: {feed.bozo_exception}")
+                    st.write(f"URL tried: {rss_url}")
+                    st.stop()
+                
+                if not feed.entries:
+                    st.error("No videos found.")
+                    st.write("Possible reasons:")
+                    st.write("- Invalid Channel ID.")
+                    st.write("- The channel is private or has no videos.")
+                    st.write("- The RSS feed is temporarily unavailable.")
+                    st.stop()
+
+                # 4. ANALYZE
+                st.success(f"Found {len(feed.entries)} recent videos.")
+                
+                crisis_keywords = ["scam", "fraud", "ban", "controversy", "canceled", "lawsuit", "apology", "debt", "scandal"]
+                crisis_detected = False
+                crisis_videos = []
+
+                for entry in feed.entries[:10]: # Check last 10 videos
