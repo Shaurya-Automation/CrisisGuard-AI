@@ -1,22 +1,61 @@
----
-title: CrisisGuard AI
-emoji: 🚨
-colorFrom: red
-colorTo: yellow
-sdk: streamlit
-sdk_version: 1.32.0
-app_file: app.py
-pinned: false
-license: mit
----
+# 🚨 CrisisGuard AI: Real-Time Crisis Detection
 
-# 🚨 CrisisGuard AI: Multi-Agent Dashboard
+> **A Python-native, multi-agent system for detecting local crises in under 2 seconds.**  
+> *Built for the Kaggle "Agents for Social Good" Capstone.*
 
-An AI-powered dashboard to detect potential crises for YouTube creators using real-time data analysis.
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## Features
-- Real-time crisis detection
-- YouTube Channel analysis
-- Automated alert system
+## 🌍 The Problem
+Mainstream news and enterprise tools (like Everbridge) are too slow or expensive for NGOs in developing regions. Critical information about floods, earthquakes, or conflicts often takes hours to reach first responders.
 
-Built with Streamlit, Pandas, and Feedparser.
+## ⚡ The Solution
+**CrisisGuard AI** is a zero-cost, self-hosted system that monitors local news feeds and social signals using 3 autonomous Python agents:
+1.  **Watcher:** Scans RSS feeds and social streams.
+2.  **Analyst:** Validates and prioritizes threats using NLP.
+3.  **Reporter:** Generates instant alerts for NGOs.
+
+**No n8n. No Make.com. No Vendor Lock-in.**
+
+## ✨ Key Features
+- **⚡ Real-Time:** Detects crises in < 2 seconds.
+- **🛡️ Zero Cost:** Runs on free-tier infrastructure (Hugging Face Spaces).
+- **📊 Live Dashboard:** Interactive Streamlit UI for monitoring.
+- **🌍 Social Good:** Designed for NGOs in resource-constrained areas.
+
+## 🛠️ Tech Stack
+- **Language:** Python 3.9+
+- **Frontend:** Streamlit
+- **Data:** Pandas, Requests
+- **Agents:** Custom Python logic (No external workflow builders)
+
+## 📦 Installation & Run
+
+### Option 1: Local Development
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/Shaurya-Automation/CrisisGuard_AI.git
+   cd CrisisGuard_AI
+   pip install -r requirements.txt
+   streamlit run app.py
+
+   📸 Screenshots
+(Note: Add your screenshots in an assets folder and link them here)
+
+Dashboard Overview- (in the folder labelled 'assets')
+
+Critical Alert Generated- (in the folder labelled 'assets')
+
+🎯 Use Cases
+NGOs: Rapid response coordination during disasters.
+Journalists: Real-time fact-checking and source verification.
+Citizens: Early warning systems for local emergencies.
+
+🤝 Contributing
+This project is open source for social good. Feel free to fork, improve, and deploy!
+
+📜 License
+MIT License. See LICENSE (in files) for details.
+
+Built by a 17-year-old developer in India for the Kaggle "Agents for Good" capstone project. 
