@@ -40,9 +40,9 @@ Mainstream news and enterprise tools (like Everbridge) are too slow or expensive
    pip install -r requirements.txt
    streamlit run app.py
 
-   📸 Screenshots
-(Note: Add your screenshots in an assets folder and link them here)
 
+
+📸 Screenshots
 Dashboard Overview- (in the folder labelled 'assets')
 
 Critical Alert Generated- (in the folder labelled 'assets')
