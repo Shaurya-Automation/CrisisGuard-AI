@@ -41,9 +41,9 @@ Mainstream news and enterprise tools (like Everbridge) are too slow or expensive
    streamlit run app.py
 
 📸 Screenshots
-Dashboard Overview- (in the folder labelled 'assets')
+Dashboard Overview- (in the file named 'Live_Dashboard_Overview.png')
 
-Critical Alert Generated- (in the folder labelled 'assets')
+Crisis Check Table- (in the file named 'Agent Logic & Data Processing.png')
 
 🎯 Use Cases
 NGOs: Rapid response coordination during disasters.
