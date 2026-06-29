@@ -32,15 +32,13 @@ Mainstream news and enterprise tools (like Everbridge) are too slow or expensive
 
 ## 📦 Installation & Run
 
-### Option 1: Local Development
+### Method: 💻 Local Development
 1. Clone the repo:
    ```bash
    git clone https://github.com/Shaurya-Automation/CrisisGuard_AI.git
    cd CrisisGuard_AI
    pip install -r requirements.txt
    streamlit run app.py
-
-
 
 📸 Screenshots
 Dashboard Overview- (in the folder labelled 'assets')
