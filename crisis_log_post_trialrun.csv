@@ -1,0 +1,21 @@
+Timestamp,Agent,Event,ThreatLevel,Location,Message,Source,Action,Sentiment,Severity,Response_Time_Sec
+2026-06-29 12:33:16,Watcher-AI,Civil Unrest Reported,Low,Chennai,Emergency services alerted to Civil Unrest Reported in Chennai.,Citizen_Report,IGNORED,-0.8,2,238
+2026-06-28 23:43:16,Analyst-Bot,Water Contamination,Medium,Delhi,Sensor detected abnormal Water Contamination levels in Delhi.,IoT_Sensors,ALERT_SENT,-0.9,3,276
+2026-06-29 00:45:16,Watcher-AI,Gas Leak Detected,High,Delhi,Social media trending: Gas Leak Detected in Delhi.,Twitter,NOTIFY_USER,-0.8,7,175
+2026-06-29 02:35:16,Watcher-AI,Wildfire Risk,High,Delhi,Multiple reports of Wildfire Risk in Delhi area.,IoT_Sensors,NOTIFY_USER,-0.8,6,153
+2026-06-29 08:01:16,Watcher-AI,Traffic Gridlock,Critical,Delhi,Sensor detected abnormal Traffic Gridlock levels in Delhi.,IoT_Sensors,NOTIFY_USER,-0.6,10,185
+2026-06-29 00:43:16,Reporter-Unit,Flash Flood Warning,Medium,Mumbai,Social media trending: Flash Flood Warning in Mumbai.,Reddit,INVESTIGATING,-0.7,3,125
+2026-06-29 00:49:16,Analyst-Bot,Structural Damage,Medium,Delhi,Sensor detected abnormal Structural Damage levels in Delhi.,Reddit,ALERT_SENT,-0.4,4,242
+2026-06-29 03:39:16,Analyst-Bot,Power Grid Failure,Critical,Kerala,Local authority confirms Power Grid Failure in Kerala.,Telegram,ALERT_SENT,-0.5,9,295
+2026-06-29 06:07:16,Analyst-Bot,Power Grid Failure,High,Delhi,Multiple reports of Power Grid Failure in Delhi area.,IoT_Sensors,INVESTIGATING,-0.4,7,57
+2026-06-29 00:08:16,Reporter-Unit,Traffic Gridlock,Critical,Mumbai,Local authority confirms Traffic Gridlock in Mumbai.,Telegram,NOTIFY_USER,-0.7,10,141
+2026-06-29 02:50:16,Watcher-AI,Structural Damage,Medium,Chennai,Sensor detected abnormal Structural Damage levels in Chennai.,News_API,ALERT_SENT,-0.9,4,261
+2026-06-28 22:37:16,Reporter-Unit,Power Grid Failure,High,Kolkata,Multiple reports of Power Grid Failure in Kolkata area.,Citizen_Report,INVESTIGATING,-0.8,6,284
+2026-06-29 06:49:16,Reporter-Unit,Landslide Alert,Medium,Chennai,Sensor detected abnormal Landslide Alert levels in Chennai.,Reddit,ALERT_SENT,-0.3,3,154
+2026-06-29 16:39:16,Reporter-Unit,Traffic Gridlock,Medium,Kerala,Sensor detected abnormal Traffic Gridlock levels in Kerala.,News_API,IGNORED,-0.4,3,95
+2026-06-28 18:15:16,Analyst-Bot,Flash Flood Warning,High,Kerala,Social media trending: Flash Flood Warning in Kerala.,Citizen_Report,NOTIFY_USER,-0.3,8,154
+2026-06-29 05:03:16,Watcher-AI,Flash Flood Warning,Low,Kolkata,Social media trending: Flash Flood Warning in Kolkata.,Reddit,INVESTIGATING,0.0,1,42
+2026-06-28 18:04:16,Reporter-Unit,Traffic Gridlock,Medium,Jaipur,Emergency services alerted to Traffic Gridlock in Jaipur.,News_API,INVESTIGATING,-0.4,3,128
+2026-06-29 15:09:16,Analyst-Bot,Structural Damage,Low,Bangalore,Social media trending: Structural Damage in Bangalore.,Citizen_Report,ALERT_SENT,-0.9,1,68
+2026-06-29 08:40:16,Watcher-AI,Landslide Alert,High,Kerala,Social media trending: Landslide Alert in Kerala.,Citizen_Report,NOTIFY_USER,-0.4,6,281
+2026-06-28 19:14:16,Watcher-AI,Power Grid Failure,Low,Kolkata,Multiple reports of Power Grid Failure in Kolkata area.,IoT_Sensors,IGNORED,-0.8,3,281
