@@ -2,3 +2,6 @@ altair
 pandas
 streamlit
 feedparser
+google-adk
+mcp
+python-dotenv
