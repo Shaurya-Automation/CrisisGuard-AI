@@ -56,4 +56,7 @@ This project is open source for social good. Feel free to fork, improve, and dep
 📜 License
 MIT License. See LICENSE (in files) for details.
 
-Built by a 17-year-old developer in India for the Kaggle "Agents for Good" capstone project. 
+## Credits
+- **Developer**: [Shaurya Bisht] (AI Workflow Automation, Python/Streamlit)
+- **Research Support**: [Rama Kruthi Sarvaraju] (Crisis data validation, testing)
+- **Built for**: Kaggle "Agents for Social Good" Capstone
